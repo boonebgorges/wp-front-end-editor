@@ -389,6 +389,12 @@
 			} );
 		}
 
+		$.each( wp.fee.tinymce.fee_plugins, function( name, file ) {
+			tinymce.PluginManager.load( name, wp.fee.tinymce.baseURL + file );
+		} );
+
+		tinymce.ThemeManager.load( 'fee', wp.fee.tinymce.baseURL + 'tinymce.theme.js' );
+
 		tinymce.init( _.extend( wp.fee.tinymce, {
 			setup: function( editor ) {
 				contentEditor = editor;
